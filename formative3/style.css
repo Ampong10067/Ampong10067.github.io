@@ -1,1 +1,102 @@
+/* === Base Styles === */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    background: linear-gradient(to bottom, #fffbe0, #fdfdfd);
+    color: #1a1a1a;
+    line-height: 1.6;
+}
 
+/* === Header === */
+header {
+    background: linear-gradient(90deg, #000000, #2c2c2c);
+    color: #FFD700;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8rem;
+}
+
+header p {
+    color: #f2f2f2;
+    font-size: 1.2rem;
+}
+
+/* === Main Content === */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Intro section */
+.intro {
+    background: linear-gradient(to right, #fffdf0, #fff9cc);
+    border-left: 6px solid #FFD700;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Passion section */
+.passion h2 {
+    color: #000;
+}
+
+.passion ul {
+    list-style-type: circle;
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.passion li {
+    margin-bottom: 10px;
+}
+
+/* Figure styling */
+figure {
+    text-align: center;
+    margin: 0;
+}
+
+figure img {
+    width: 100%;
+    max-width: 500px;
+    border: 5px solid #FFD700;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+figcaption {
+    font-style: italic;
+    margin-top: 10px;
+    color: #444;
+}
+
+/* === Footer === */
+footer {
+    background: linear-gradient(90deg, #000000, #2c2c2c);
+    color: #f2f2f2;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+}
+
+/* === Responsive layout === */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    figure img {
+        width: 90%;
+    }
+}
