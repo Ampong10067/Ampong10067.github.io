@@ -43,6 +43,25 @@ header {
     margin-bottom: 1.5rem;
 }
 
+/* Heading style */
+.right h2 {
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Paragraph 1 - gold text */
+.right p:first-of-type {
+    font-family: 'Georgia', serif;
+    color: #FFD700;
+}
+
+/* Paragraph 2 - black text with different font */
+.right p:nth-of-type(2) {
+    font-family: 'Verdana', sans-serif;
+    color: #000;
+}
+
 /* Footer */
 footer {
     background-color: #FFD700;
