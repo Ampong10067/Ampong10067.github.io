@@ -29,7 +29,7 @@ header {
 main {
     grid-area: main;
     display: grid;
-    grid-template-columns: 1fr 3fr; /* widened right column */
+    grid-template-columns: 1fr 3fr; /* only 2 columns now */
     gap: 1.5rem;
     padding: 1.5rem;
     width: 100%;
