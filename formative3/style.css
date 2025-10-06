@@ -30,14 +30,6 @@ header {
     border-radius: 10px;
 }
  
-/* Middle Section */
-.mid {
-    background-color: #fff;
-    color: #000;
-    border-radius: 10px;
-    line-height: 1.6;
-}
- 
 /* Right Section */
 .right {
     background-color: #222;
