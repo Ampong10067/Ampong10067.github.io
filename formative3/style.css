@@ -2,18 +2,18 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     justify-content: center;
     align-items: stretch;
-    background-color: #000; /* black background */
-    color: #fff; /* white text */
+    background-color: #000;
+    color: #fff;
 }
- 
+
 /* Container styling */
 .container {
-    background-color: #111; /* dark base grid container */
+    background-color: #111;
 }
- 
+
 /* Header */
 header {
-    background-color: #FFD700; /* yellow */
+    background-color: #FFD700;
     color: #000;
     text-align: center;
     font-size: 1.8rem;
@@ -22,29 +22,22 @@ header {
     padding: 1.5rem;
     border-bottom: 3px solid #000;
 }
- 
+
 /* Left Section */
 .left {
     background-color: #222;
     color: #FFD700;
     border-radius: 10px;
 }
- 
-/* Middle Section */
-.mid {
+
+/* Right Section */
+.right {
     background-color: #fff;
     color: #000;
     border-radius: 10px;
     line-height: 1.6;
 }
- 
-/* Right Section */
-.right {
-    background-color: #222;
-    color: #FFD700;
-    border-radius: 10px;
-}
- 
+
 /* Footer */
 footer {
     background-color: #FFD700;
@@ -55,42 +48,42 @@ footer {
     padding: 0.5rem;
     border-top: 3px solid #000;
 }
- 
+
 /* Links */
 a {
     color: #FFD700;
     text-decoration: none;
 }
- 
+
 a:hover {
     text-decoration: underline;
 }
- 
+
 /* Lists */
 ul {
     margin-left: 1.5rem;
     padding-top: 0.5rem;
 }
- 
+
 /* Image styling */
 figure {
     text-align: center;
     margin-top: 1rem;
 }
- 
+
 img {
     width: 80%;
     border: 3px solid #FFD700;
     border-radius: 10px;
     margin-top: 0.5rem;
 }
- 
+
 figcaption {
     font-style: italic;
     margin-top: 0.5rem;
     color: #333;
 }
- 
+
 /* Headings */
 h2, h3 {
     color: #FFD700;
