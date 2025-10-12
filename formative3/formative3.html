@@ -3,61 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formative Activity 3 | About Me - Anngail Ampong</title>
+    <title>Ann's World</title>
+
+    <!-- Link to external stylesheets -->
     <link rel="stylesheet" href="grid.css">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Smooth scroll behavior -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>About Me</h1>
+            <h1>Ann's World</h1>
+            <nav>
+                <a href="#about">About Me</a> |
+                <a href="#projects">Projects</a> |
+                <a href="#schedule">My Schedule</a> |
+                <a href="#contact">Contact</a> |
+                <a href="#hobbies">My Hobbies</a>
+            </nav>
         </header>
 
         <main>
-            <!-- LEFT COLUMN -->
-            <section class="left">
-                <h2>Navigation</h2>
-                <nav>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="https://ampong10067.github.io/module2_summative.html" target="_blank">Portfolio</a></li>
-                        <li><a href="mailto:anngailampong@gmail.com">Contact</a></li>
-                    </ul>
-                </nav>
-            </section>
+            <!-- LEFT COLUMN (Navigation / Quick Links) -->
+            <aside class="left">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#schedule">My Schedule</a></li>
+                    <li><a href="#hobbies">My Hobbies</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </aside>
 
-            <!-- RIGHT COLUMN -->
+            <!-- RIGHT COLUMN (Main Content) -->
             <section class="right">
-                <h2>Hello, I’m Anngail Ampong</h2>
+                <!-- Home Section -->
+                <section id="home">
+                    <h2>Welcome to Ann's World</h2>
+                    <p>This is my personal webpage where I share my interests, schedule, and favorites!</p>
+                </section>
 
-                <p class="intro">I’m a <strong>multimedia student</strong> passionate about photography and filming.</p>
+                <!-- About Me Section -->
+                <section id="about">
+                    <h2>About Me</h2>
+                    <article>
+                        <p>Hello! I am <strong>Ann Gail Miomie Ampong</strong>, a 2nd year Multimedia Arts student at FEU Institute of Technology. 
+                        I am deeply passionate about creative storytelling, especially through photography and filming. 
+                        I enjoy capturing real moments and turning them into scenes that look like they belong in a movie.</p>
+                    </article>
+                </section>
 
-                <p class="details">Aside from my studies, I love <strong>photography</strong> and <strong>cinematography.</strong> 
-                I find joy in editing lighting and exploring the variety of colors.</p>
-                
-                <h3>My Interests</h3>
-                <ul>
-                    <li>Photography</li>
-                    <li>Cinematography</li>
-                    <li>Filming</li>
-                </ul>
+                <!-- Projects Section -->
+                <section id="projects">
+                    <h2>Projects</h2>
+                    <p>Here are some of my recent creative works and multimedia projects.</p>
+                    <ul>
+                        <li>Short Film: “Through My Lens”</li>
+                        <li>Photography Exhibit: “Golden Hours”</li>
+                        <li>Animation Concept: “Light and Shadows”</li>
+                    </ul>
+                </section>
 
-                <figure>
-                    <img src="CHUCKIE.jpg" alt="Moments through my lens.">
-                    <figcaption>“Moments through my lens.”</figcaption>
-                </figure>
+                <!-- My Schedule Section -->
+                <section id="schedule">
+                    <h2>My Schedule</h2>
+                    <table border="1" cellpadding="5">
+                        <tr>
+                            <th>Day</th>
+                            <th>Activity</th>
+                        </tr>
+                        <tr>
+                            <td>Monday</td>
+                            <td>Photography practice & classwork</td>
+                        </tr>
+                        <tr>
+                            <td>Tuesday</td>
+                            <td>Filming and editing videos</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td>Sketching houses and creative projects</td>
+                        </tr>
+                        <tr>
+                            <td>Thursday</td>
+                            <td>Gaming (COD, Valorant, ML)</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>Group work & multimedia assignments</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>Exploring photography outdoors</td>
+                        </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>Rest day & family bonding</td>
+                        </tr>
+                    </table>
+                </section>
 
-                <h3>Quick Info</h3>
-                <ul>
-                    <li><strong>Course:</strong> Multimedia Arts</li>
-                    <li><strong>Hobby:</strong> Editing</li>
-                    <li><strong>Interest:</strong> Artistry</li>
-                </ul>
+                <!-- My Hobbies Section -->
+                <section id="hobbies">
+                    <h2>My Hobbies</h2>
+                    <p>I love to engage in creative hobbies that inspire me to tell visual stories. Some of them include:</p>
+                    <ul>
+                        <li>Filmmaking & Video Editing</li>
+                        <li>Gaming</li>
+                        <li>Sketching & Photography</li>
+                    </ul>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contact">
+                    <h2>Contact</h2>
+                    <p>Feel free to reach out to me for collaboration or creative projects!</p>
+                    <p>Email: <a href="mailto:anngail.ampong@example.com">anngail.ampong@example.com</a></p>
+                </section>
             </section>
         </main>
 
         <footer>
-            <p>© 2025 Anngail Ampong | All Rights Reserved</p>
+            <p>Created by Ann Gail Miomie Ampong | 2nd Year Multimedia Arts Student, FEU Institute of Technology | &copy; 2025 Ann's World</p>
         </footer>
     </div>
 </body>
