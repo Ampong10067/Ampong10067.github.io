@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const logo = document.getElementById("logo");
   const logotext = document.getElementById("logotext");
+
   if (logo) {
     logo.addEventListener("mouseenter", () => {
       logo.style.transform = "scale(1.1) rotate(5deg)";
