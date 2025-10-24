@@ -6,10 +6,8 @@
   <title>Sign Up – Klasik Sining</title>
   <link rel="stylesheet" href="css/style.css" />
   <script defer src="js/script.js"></script>
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js"></script>
 </head>
+
 <body class="auth-body">
   <header class="auth-header">
     <a href="index.html" class="logo">
@@ -20,9 +18,10 @@
 
   <main class="auth-container">
     <h1 id="moving-text">Create Your Account</h1>
-    <form id="signup-form" class="auth-form">
+
+    <form id="signup-form" class="auth-form" novalidate>
       <input type="email" id="signup-email" placeholder="Email" required />
-      <input type="password" id="signup-password" placeholder="Password" required />
+      <input type="password" id="signup-password" placeholder="Password (min 6 chars)" required minlength="6" />
       <button type="submit" class="btn-animated">Sign Up</button>
       <p class="auth-link">Already have an account? <a href="login.html">Login here</a></p>
       <p id="signup-message" class="form-message"></p>
@@ -32,43 +31,5 @@
   <footer>
     <p>© <span id="year"></span> Klasik Sining. All rights reserved.</p>
   </footer>
-
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyCqxw2g-7z-rh2SC7I4Q1o1rL5VfRV5iFg",
-      authDomain: "demo-art-auth.firebaseapp.com",
-      projectId: "demo-art-auth",
-      storageBucket: "demo-art-auth.appspot.com",
-      messagingSenderId: "492493887100",
-      appId: "1:492493887100:web:2b58a49a229cfb0e65729a"
-    };
-
-    const app = firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    document.getElementById("signup-form").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const email = document.getElementById("signup-email").value;
-      const password = document.getElementById("signup-password").value;
-      const message = document.getElementById("signup-message");
-
-      try {
-        const methods = await auth.fetchSignInMethodsForEmail(email);
-        if (methods.length > 0) {
-          message.textContent = "This email already exists. Try logging in.";
-          message.style.color = "red";
-          return;
-        }
-
-        await auth.createUserWithEmailAndPassword(email, password);
-        message.textContent = "Account created successfully!";
-        message.style.color = "green";
-        document.getElementById("signup-form").reset();
-      } catch (error) {
-        message.textContent = error.message;
-        message.style.color = "red";
-      }
-    });
-  </script>
 </body>
 </html>
