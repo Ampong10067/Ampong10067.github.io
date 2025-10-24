@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery – Klasik Sining</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/script.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="assets/Klasik Sining!.png" alt="Klasik Sining Text Logo" id="logotext">
+        <img src="assets/Klasik Sining! (1).png" alt="Klasik Sining Logo" id="logo">
+      </div>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+      </ul>
+      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    </nav>
+  </header>
+
+  <main class="gallery-page">
+    <h1 id="moving-text">Our Art Collections</h1>
+    <p class="gallery-intro">
+      Explore the curated art catalogue of <b>Ann Gail Miomie Ampong</b> and <b>Kaela Vita</b> — a visual journey through motion, line, texture, and form. Hover over each video to feel the movement unfold.
+    </p>
+
+    <!-- Example Section -->
+    <section class="gallery-section" id="Animations">
+      <h2>Animations</h2>
+      <div class="gallery-grid">
+        <figure><video src="assets/YumsAnimations1.mov" muted loop></video><figcaption>Whispers in Motion</figcaption></figure>
+        <figure><video src="assets/YumsAnimations2.mov" muted loop></video><figcaption>Echo of Light</figcaption></figure>
+        <figure><video src="assets/KayAnimations1.mov" muted loop></video><figcaption>Pulse of Light</figcaption></figure>
+      </div>
+      <p class="credit">Created by Ann Gail Miomie Ampong & Kaela Vita</p>
+    </section>
+
+    <!-- Additional sections like Traditional Drawings, Digital Drawings, etc., follow the same structure -->
+
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Klasik Sining. All rights reserved.</p>
+  </footer>
+</body>
+</html>
