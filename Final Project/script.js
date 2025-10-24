@@ -1,58 +1,12 @@
+/* script.js — full site behavior + gallery filtering/modal
+   Replace your existing script.js with this file (top-level Final Project/script.js)
+*/
 document.addEventListener("DOMContentLoaded", () => {
-  // set year
+  // set copyright year
   const yearSpan = document.getElementById("year");
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // logo hover movement
-  const logo = document.getElementById("logo");
-  const logotext = document.getElementById("logotext");
-  function animateIn(el) {
-    if (!el) return;
-    el.style.transform = "scale(1.06) rotate(3deg)";
-    el.style.transition = "transform .18s ease";
-  }
-  function animateOut(el) {
-    if (!el) return;
-    el.style.transform = "scale(1) rotate(0)";
-  }
-  if (logo) {
-    logo.addEventListener("mouseenter", () => animateIn(logo));
-    logo.addEventListener("mouseleave", () => animateOut(logo));
-  }
-  if (logotext) {
-    logotext.addEventListener("mouseenter", () => animateIn(logotext));
-    logotext.addEventListener("mouseleave", () => animateOut(logotext));
-  }
-
-  // moving subheader subtle movement
-  const dynamic = document.getElementById("dynamic-subheader");
-  if (dynamic) {
-    dynamic.addEventListener("mousemove", (e) => {
-      const rect = dynamic.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      dynamic.style.transform = `translateX(${x * 8}px)`;
-    });
-    dynamic.addEventListener("mouseleave", () => {
-      dynamic.style.transform = "translateX(0)";
-    });
-  }
-
-  // moving heading micro-3d
-  const movingText = document.getElementById("moving-text");
-  if (movingText) {
-    movingText.addEventListener("mousemove", (e) => {
-      const { offsetX, offsetY, target } = e;
-      const x = (offsetX / target.offsetWidth - 0.5) * 10;
-      const y = (offsetY / target.offsetHeight - 0.5) * 10;
-      target.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
-      target.style.transition = "transform .08s ease";
-    });
-    movingText.addEventListener("mouseleave", (e) => {
-      e.currentTarget.style.transform = "rotateX(0) rotateY(0)";
-    });
-  }
-
-  // burger menu toggle
+  // basic elements
   const burger = document.getElementById("burger");
   const navList = document.querySelector(".nav-list");
   if (burger && navList) {
@@ -62,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // highlight active nav link (works for simple filename paths)
+  // active nav link highlight
   const current = window.location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".nav-list a").forEach(a => {
     const href = a.getAttribute("href");
@@ -72,20 +26,192 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // play/pause gallery videos on hover
-  document.querySelectorAll(".gallery-grid video, .card video").forEach(v => {
-    v.addEventListener("mouseenter", () => {
-      v.play().catch(() => {});
+  // logo & text micro animations
+  const logo = document.getElementById("logo");
+  const logotext = document.getElementById("logotext");
+  function hoverIn(el) { if (!el) return; el.style.transform = "translateY(-4px) scale(1.03)"; el.style.transition = "transform .18s ease"; }
+  function hoverOut(el) { if (!el) return; el.style.transform = "translateY(0) scale(1)"; }
+  [logo, logotext].forEach(el => {
+    if (!el) return;
+    el.addEventListener("mouseenter", () => hoverIn(el));
+    el.addEventListener("mouseleave", () => hoverOut(el));
+  });
+
+  // dynamic/moving subheader
+  const dynamic = document.getElementById("dynamic-subheader");
+  if (dynamic) {
+    dynamic.addEventListener("mousemove", (e) => {
+      const rect = dynamic.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      dynamic.style.transform = `translateX(${x * 6}px)`;
     });
-    v.addEventListener("mouseleave", () => {
-      v.pause();
-      v.currentTime = 0;
+    dynamic.addEventListener("mouseleave", () => {
+      dynamic.style.transform = "translateX(0)";
+    });
+  }
+
+  // small 3D effect for IDs with moving-text
+  const movingText = document.getElementById("moving-text");
+  if (movingText) {
+    movingText.addEventListener("mousemove", (e) => {
+      const { offsetX, offsetY, target } = e;
+      const x = (offsetX / target.offsetWidth - 0.5) * 6;
+      const y = (offsetY / target.offsetHeight - 0.5) * 6;
+      target.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
+      target.style.transition = "transform .08s ease";
+    });
+    movingText.addEventListener("mouseleave", () => {
+      movingText.style.transform = "rotateX(0) rotateY(0)";
+    });
+  }
+
+  // ---------------------------------------------------
+  // GALLERY: filtering, search (category OR creator), modal
+  // ---------------------------------------------------
+  const grid = document.getElementById("art-grid");
+  const tiles = grid ? Array.from(grid.querySelectorAll(".tile")) : [];
+  const catButtons = Array.from(document.querySelectorAll(".cat-btn"));
+  const searchInput = document.getElementById("gallery-search");
+
+  // Helper: show/hide tiles based on predicate
+  function applyFilter({ category = "all", search = "" } = {}) {
+    const s = search.trim().toLowerCase();
+    tiles.forEach(tile => {
+      const tileCat = (tile.dataset.category || "").toLowerCase();
+      const tileCreator = (tile.dataset.creator || "").toLowerCase();
+      // category match: if 'all' or equals
+      const catMatch = (category === "all") || (tile.dataset.category === category);
+      // search match: only category or creator name per your request
+      const searchMatch = !s || tileCat.includes(s) || tileCreator.includes(s);
+      const visible = catMatch && searchMatch;
+      tile.style.display = visible ? "" : "none";
+    });
+  }
+
+  // initial: show all
+  applyFilter({ category: "all", search: "" });
+
+  // category buttons
+  catButtons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      catButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const cat = btn.dataset.cat;
+      applyFilter({ category: cat, search: searchInput.value || "" });
+      // scroll grid to top for better UX
+      if (grid) grid.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 
-  // -------------------------
-  // Signup/Login (localStorage)
-  // -------------------------
+  // search input: filters by category OR creator name only
+  if (searchInput) {
+    let searchTimer = null;
+    searchInput.addEventListener("input", (e) => {
+      clearTimeout(searchTimer);
+      const q = e.target.value;
+      searchTimer = setTimeout(() => {
+        // find currently active category
+        const active = document.querySelector(".cat-btn.active");
+        const currentCat = active ? active.dataset.cat : "all";
+        applyFilter({ category: currentCat, search: q });
+      }, 180);
+    });
+  }
+
+  // hover play for videos in grid
+  tiles.forEach(tile => {
+    const vid = tile.querySelector("video");
+    if (vid) {
+      // set src from data-src if present
+      const dataSrc = vid.dataset.src;
+      if (dataSrc && !vid.getAttribute("src")) vid.src = dataSrc;
+      tile.addEventListener("mouseenter", () => {
+        vid.play().catch(()=>{/* autoplay may be blocked */});
+        tile.classList.add("hovered");
+      });
+      tile.addEventListener("mouseleave", () => {
+        vid.pause();
+        vid.currentTime = 0;
+        tile.classList.remove("hovered");
+      });
+    }
+  });
+
+  // LIGHTBOX / modal
+  const lightbox = document.getElementById("lightbox");
+  const lbContent = document.getElementById("lb-content");
+  const lbClose = document.getElementById("lb-close");
+
+  function openLightboxFor(tile) {
+    if (!lightbox || !lbContent) return;
+    lbContent.innerHTML = ""; // clear
+    const isVideo = !!tile.querySelector("video");
+    const title = tile.querySelector("h3") ? tile.querySelector("h3").textContent : "";
+    const creator = tile.dataset.creator || "";
+    const category = tile.dataset.category || "";
+    const dataSrcImg = tile.querySelector("img") ? tile.querySelector("img").getAttribute("src") : null;
+    const dataSrcVid = tile.querySelector("video") ? (tile.querySelector("video").dataset.src || tile.querySelector("video").src) : null;
+
+    if (isVideo && dataSrcVid) {
+      const v = document.createElement("video");
+      v.setAttribute("controls", "");
+      v.setAttribute("autoplay", "");
+      v.src = dataSrcVid;
+      v.style.maxWidth = "100%";
+      v.style.maxHeight = "80vh";
+      lbContent.appendChild(v);
+    } else if (dataSrcImg) {
+      const i = document.createElement("img");
+      i.src = dataSrcImg;
+      i.alt = title;
+      i.style.maxWidth = "100%";
+      i.style.maxHeight = "80vh";
+      lbContent.appendChild(i);
+    } else {
+      lbContent.textContent = "Preview not available.";
+    }
+
+    const info = document.createElement("div");
+    info.className = "lb-info";
+    info.innerHTML = `<h3>${escapeHtml(title)}</h3><p class="credit">${escapeHtml(creator)} • ${escapeHtml(category)}</p>`;
+    lbContent.appendChild(info);
+
+    lightbox.style.display = "flex";
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    if (!lightbox || !lbContent) return;
+    lightbox.style.display = "none";
+    lightbox.setAttribute("aria-hidden", "true");
+    lbContent.innerHTML = "";
+    document.body.style.overflow = "";
+  }
+
+  // click on any tile opens lightbox
+  tiles.forEach(tile => {
+    tile.addEventListener("click", () => openLightboxFor(tile));
+  });
+
+  // close handlers
+  if (lbClose) lbClose.addEventListener("click", closeLightbox);
+  if (lightbox) lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
+
+  // small helper: escape html for safety in modal text
+  function escapeHtml(str) {
+    if (!str) return "";
+    return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+  }
+
+  // ---------------------
+  // Additional: login/signup basic (localStorage)
+  // ---------------------
   function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
@@ -117,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
       users[email] = { password };
       localStorage.setItem("ks_users", JSON.stringify(users));
       message.textContent = "Account created successfully! You can now log in.";
-      message.style.color = "lightgreen";
+      message.style.color = "green";
       signupForm.reset();
     });
   }
@@ -146,11 +272,10 @@ document.addEventListener("DOMContentLoaded", () => {
         message.style.color = "tomato";
         return;
       }
-      // logged in (mock)
       localStorage.setItem("ks_logged_in", JSON.stringify({ email }));
       message.textContent = "Logged in successfully!";
-      message.style.color = "lightgreen";
-      setTimeout(() => { window.location.href = "index.html"; }, 700);
+      message.style.color = "green";
+      setTimeout(() => window.location.href = "index.html", 700);
     });
   }
 });
