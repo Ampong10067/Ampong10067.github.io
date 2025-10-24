@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Klasik Sining — Home</title>
   <meta name="description" content="Klasik Sining is an art catalogue showcasing the creative works of Ann Gail Miomie Ampong and Kaela Vita." />
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/style.css" />
   <script defer src="js/script.js"></script>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Klasik Sining home">
-        <!-- main element logo -->
-        <img src="assets/Klasik Sining!.png" alt="Klasik Sining logo (KS)" id="logo" class="logo" />
-        <!-- text logo -->
+        <img src="assets/Klasik Sining!.png" alt="Klasik Sining logo" id="logo" class="logo" />
         <img src="assets/Klasik Sining! (1).png" alt="Klasik Sining text logo" id="logotext" class="logotext" />
       </a>
 
@@ -23,40 +21,40 @@
           <li><a href="index.html" class="nav-link active">Home</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="signup.html" class="nav-link">Sign Up</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
         <a class="btn ghost" href="login.html" id="login-btn">Log in</a>
         <a class="btn primary" href="signup.html" id="signup-btn">Sign up</a>
-        <button class="burger" id="burger" aria-label="Open menu">☰</button>
+        <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
       </div>
     </div>
 
     <div class="hero container">
       <div class="hero-left">
-        <h1 class="hero-title">
-          Klasik <span class="hero-accent moving" id="moving-text">Sining</span>
-        </h1>
+        <h1 class="hero-title">Klasik <span class="hero-accent" id="moving-text">Sining</span></h1>
         <p class="hero-intro">
-          Welcome to <strong>Klasik Sining</strong>, an art catalogue showcasing the creative works of Ann Gail Miomie Ampong and Kaela Vita. This collection features a range of artistic forms including Animations, Traditional Drawings, Digital Drawings, Paintings, Typography, Short Films, Photography, 3D Modeling, and Cinematography — each piece reflecting our shared passion for storytelling and visual expression.
+          Welcome to <strong>Klasik Sining</strong>, an online art catalogue collecting works by Ann Gail Miomie Ampong &amp; Kaela Vita — featuring Animations, Ink Drawings, Paintings, Short Films, 3D Modeling, Typography, Cinematography, and Photography.
         </p>
+
         <div class="hero-cta">
           <a href="gallery.html" class="btn primary large">Browse the Collection</a>
           <a href="about.html" class="btn ghost">About the Duo</a>
         </div>
-        <div class="dynamic-subheader" id="dynamic-subheader" aria-hidden="true">
+
+        <div class="dynamic-subheader" id="dynamic-subheader" aria-hidden="false">
           Latest • Featured • Most Viewed • New Arrivals
         </div>
       </div>
 
-      <aside class="hero-right" aria-hidden="false">
-        <!-- Featured preview thumbnails (placeholders that will be replaced when you add assets) -->
+      <aside class="hero-right">
         <div class="featured-preview">
           <figure>
-            <img src="assets/YumsPhotography1.jpg" alt="Featured artwork by Ann Gail Miomie Ampong & Kaela Vita">
-            <figcaption>Featured: YumsPhotography1.jpg — photography by Ann & Kaela</figcaption>
+            <img src="assets/YumsPhotography1.jpg" alt="Featured artwork by Ann & Kaela">
+            <figcaption>Featured: Soft Focus — Ann &amp; Kaela</figcaption>
           </figure>
         </div>
       </aside>
@@ -67,7 +65,24 @@
     <section class="featured-section">
       <h2>Featured Works</h2>
       <div id="featured-grid" class="grid cards">
-        <!-- JS will populate featured cards here (artwork data comes from js/script.js) -->
+        <!-- Top featured thumbnails -->
+        <article class="card">
+          <img src="assets/YumsDigitalDrawings1.jpg" alt="Color Pulse — Ann Gail">
+          <h3>Color Pulse</h3>
+          <p class="credit">Ann Gail Miomie Ampong</p>
+        </article>
+
+        <article class="card">
+          <img src="assets/KayDigitalDrawings1.PNG" alt="Pixel Dream — Kaela Vita">
+          <h3>Pixel Dream</h3>
+          <p class="credit">Kaela Vita</p>
+        </article>
+
+        <article class="card">
+          <video src="assets/YumsAnimations4.mp4" muted loop></video>
+          <h3>Moment of Stillness</h3>
+          <p class="credit">Ann Gail Miomie Ampong</p>
+        </article>
       </div>
     </section>
 
@@ -75,7 +90,7 @@
       <h2>Categories</h2>
       <div class="category-grid">
         <a class="category" href="gallery.html#Animations">Animations</a>
-        <a class="category" href="gallery.html#Traditional_Drawings">Traditional Drawings</a>
+        <a class="category" href="gallery.html#Ink_Drawings">Ink Drawings</a>
         <a class="category" href="gallery.html#Digital_Drawings">Digital Drawings</a>
         <a class="category" href="gallery.html#Paintings">Paintings</a>
         <a class="category" href="gallery.html#Short_Films">Short Films</a>
