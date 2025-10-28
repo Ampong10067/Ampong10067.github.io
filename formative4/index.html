@@ -24,20 +24,24 @@
       width: 200px;
     }
     .gender-group {
-      margin: 10px 0;
+      margin: 8px 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 20px;
+      gap: 12px; /* less space between gender options */
+    }
+    .gender-group strong {
+      margin-right: 8px;
     }
     .gender-group label {
       display: flex;
       align-items: center;
       font-size: 14px;
+      gap: 3px; /* small space between radio and text */
     }
     .gender-group input[type="radio"] {
-      margin-right: 6px;
-      transform: scale(1.1);
+      transform: scale(1.05);
+      cursor: pointer;
     }
     button {
       padding: 5px 10px;
@@ -74,9 +78,9 @@
 
     <div class="gender-group">
       <strong>Gender:</strong>
-      <label><input type="radio" name="gender" value="Male" required> Male</label>
-      <label><input type="radio" name="gender" value="Female" required> Female</label>
-      <label><input type="radio" name="gender" value="Other Gender" required> Other Gender</label>
+      <label><input type="radio" name="gender" value="Male" required>Male</label>
+      <label><input type="radio" name="gender" value="Female" required>Female</label>
+      <label><input type="radio" name="gender" value="Other Gender" required>Other</label>
     </div><br>
 
     <button type="button" id="saveBtn">Save</button>
