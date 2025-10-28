@@ -2,83 +2,148 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formative 4 - Sign Up Form</title>
+  <script defer src="script.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      margin: 40px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
       text-align: center;
-      padding: 20px;
+      color: #333;
     }
+
     form {
-      background: white;
-      display: inline-block;
-      padding: 15px;
+      background: #fff;
+      padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 5px gray;
-      margin-bottom: 20px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    input, select {
-      margin: 5px;
-      padding: 5px;
-      width: 200px;
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
     }
+
+    input[type="text"], input[type="date"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    /* make the calendar input larger */
+    input[type="date"] {
+      height: 45px;
+    }
+
+    /* style gender section */
+    .gender-group {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+      gap: 20px;
+    }
+
+    .gender-group label {
+      font-weight: normal;
+      font-size: 18px;
+    }
+
+    .gender-group input[type="radio"] {
+      transform: scale(1.5);
+      margin-right: 8px;
+    }
+
     button {
-      padding: 5px 10px;
-      background-color: lightblue;
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
       border: none;
       border-radius: 5px;
+      font-size: 16px;
       cursor: pointer;
     }
+
     button:hover {
-      background-color: skyblue;
+      background-color: #45a049;
     }
+
     table {
-      margin: 0 auto;
+      width: 90%;
+      margin: 30px auto;
       border-collapse: collapse;
-      background: white;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
     }
+
     th, td {
-      border: 1px solid gray;
-      padding: 8px 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+      padding: 10px;
     }
+
     th {
-      background-color: lightblue;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
     }
   </style>
 </head>
 <body>
-  <h2>Simple Sign Up Form</h2>
-
+  <h1>Sign Up Form</h1>
   <form id="signupForm">
-    <input type="text" id="idNumber" placeholder="ID Number" required><br>
-    <input type="text" id="firstName" placeholder="First Name" required><br>
-    <input type="text" id="middleName" placeholder="Middle Name"><br>
-    <input type="text" id="lastName" placeholder="Last Name" required><br>
-    <select id="gender" required>
-      <option value="">Select Gender</option>
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-    </select><br>
-    <input type="date" id="birthday" required><br>
+    <label for="idNumber">ID Number:</label>
+    <input type="text" id="idNumber" required>
+
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" required>
+
+    <label for="middleName">Middle Name:</label>
+    <input type="text" id="middleName">
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" required>
+
+    <label>Gender:</label>
+    <div class="gender-group">
+      <label><input type="radio" name="gender" value="Male" required> Male</label>
+      <label><input type="radio" name="gender" value="Female" required> Female</label>
+    </div>
+
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="birthday" required>
+
     <button type="button" id="saveBtn">Save</button>
   </form>
 
   <table id="dataTable">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>First</th>
-        <th>Middle</th>
-        <th>Last</th>
+        <th>ID Number</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
         <th>Gender</th>
         <th>Birthday</th>
       </tr>
     </thead>
     <tbody></tbody>
   </table>
-
-  <!-- Connect to the JS file -->
-  <script src="script.js"></script>
 </body>
 </html>
