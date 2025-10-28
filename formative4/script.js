@@ -4,16 +4,17 @@ document.getElementById("saveBtn").addEventListener("click", function () {
   const firstName = document.getElementById("firstName").value.trim();
   const middleName = document.getElementById("middleName").value.trim();
   const lastName = document.getElementById("lastName").value.trim();
-  const age = document.getElementById("age").value.trim();
+  const age = document.getElementById("age").value; // do not trim number input
 
   // Validate required fields
-  if (!idNumber || !firstName || !lastName || !age) {
+  if (idNumber === "" || firstName === "" || lastName === "" || age === "") {
     alert("Please fill in all required fields.");
     return;
   }
 
-  // Check if age is a valid number
-  if (isNaN(age) || age <= 0) {
+  // Validate that age is a positive number
+  const ageNum = Number(age);
+  if (isNaN(ageNum) || ageNum <= 0) {
     alert("Please enter a valid age.");
     return;
   }
@@ -27,7 +28,7 @@ document.getElementById("saveBtn").addEventListener("click", function () {
     <td>${firstName}</td>
     <td>${middleName}</td>
     <td>${lastName}</td>
-    <td>${age}</td>
+    <td>${ageNum}</td>
   `;
 
   tableBody.appendChild(newRow);
