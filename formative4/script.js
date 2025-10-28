@@ -1,12 +1,12 @@
-// Array to store all entries
+// Array to store all user data
 let userList = [];
 
-// Function to show data in table
+// Function to show data in the table
 function showTable() {
   const tableBody = document.querySelector("#dataTable tbody");
-  tableBody.innerHTML = ""; // clear old rows
+  tableBody.innerHTML = "";
 
-  // Loop through array and display each user
+  // Loop through the array and add each user
   userList.forEach(function(user) {
     const row = document.createElement("tr");
     for (let key in user) {
@@ -18,9 +18,8 @@ function showTable() {
   });
 }
 
-// Function to save user data
+// Function to save form data
 function saveUser() {
-  // Get input values (variables)
   let id = document.getElementById("idNumber").value;
   let first = document.getElementById("firstName").value;
   let middle = document.getElementById("middleName").value;
@@ -28,7 +27,7 @@ function saveUser() {
   let gender = document.getElementById("gender").value;
   let birthday = document.getElementById("birthday").value;
 
-  // Store in object
+  // Create object
   let user = {
     id: id,
     first: first,
@@ -38,16 +37,16 @@ function saveUser() {
     birthday: birthday
   };
 
-  // Add object to array
+  // Add to array
   userList.push(user);
 
-  // Show in table
+  // Display on table
   showTable();
 
-  // Reset form
+  // Reset the form
   document.getElementById("signupForm").reset();
 
-  // Change button color briefly
+  // Button color change
   let btn = document.getElementById("saveBtn");
   btn.style.backgroundColor = "lightgreen";
   setTimeout(function() {
@@ -55,5 +54,5 @@ function saveUser() {
   }, 700);
 }
 
-// Add event listener for button click
+// Event listener for the button
 document.getElementById("saveBtn").addEventListener("click", saveUser);
