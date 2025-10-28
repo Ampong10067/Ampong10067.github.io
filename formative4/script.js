@@ -7,7 +7,7 @@ function saveData() {
   const firstName = document.getElementById("firstName").value;
   const middleName = document.getElementById("middleName").value;
   const lastName = document.getElementById("lastName").value;
-  const gender = document.getElementById("gender").value;
+  const gender = document.querySelector('input[name="gender"]:checked')?.value;
 
   if (!idNumber || !firstName || !lastName || !gender) {
     alert("Please fill in all required fields.");
