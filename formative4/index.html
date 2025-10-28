@@ -25,12 +25,16 @@
     }
     .gender-group {
       margin: 10px 0;
-      text-align: left;
-      display: inline-block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
     }
     .gender-group label {
-      display: block;
-      margin: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
     }
     button {
       padding: 5px 10px;
@@ -66,10 +70,9 @@
     <input type="text" id="lastName" placeholder="Last Name" required><br>
 
     <div class="gender-group">
-      <strong>Gender:</strong><br>
+      <strong>Gender:</strong>
       <label><input type="radio" name="gender" value="Male" required> Male</label>
       <label><input type="radio" name="gender" value="Female" required> Female</label>
-      <label><input type="radio" name="gender" value="Other Gender" required> Other Gender</label>
     </div><br>
 
     <button type="button" id="saveBtn">Save</button>
