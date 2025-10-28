@@ -1,58 +1,40 @@
-// Array to store all user data
-let userList = [];
+document.getElementById("saveBtn").addEventListener("click", saveData);
 
-// Function to show data in the table
-function showTable() {
-  const tableBody = document.querySelector("#dataTable tbody");
-  tableBody.innerHTML = "";
+const userData = [];
 
-  // Loop through the array and add each user
-  userList.forEach(function(user) {
-    const row = document.createElement("tr");
-    for (let key in user) {
-      const cell = document.createElement("td");
-      cell.textContent = user[key];
-      row.appendChild(cell);
-    }
-    tableBody.appendChild(row);
+function saveData() {
+  const idNumber = document.getElementById("idNumber").value;
+  const firstName = document.getElementById("firstName").value;
+  const middleName = document.getElementById("middleName").value;
+  const lastName = document.getElementById("lastName").value;
+  const gender = document.getElementById("gender").value;
+
+  if (!idNumber || !firstName || !lastName || !gender) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  const person = { idNumber, firstName, middleName, lastName, gender };
+  userData.push(person);
+
+  updateTable();
+  document.getElementById("signupForm").reset();
+}
+
+function updateTable() {
+  const tbody = document.querySelector("#dataTable tbody");
+  tbody.innerHTML = "";
+
+  userData.forEach(data => {
+    const row = `
+      <tr>
+        <td>${data.idNumber}</td>
+        <td>${data.firstName}</td>
+        <td>${data.middleName}</td>
+        <td>${data.lastName}</td>
+        <td>${data.gender}</td>
+      </tr>
+    `;
+    tbody.innerHTML += row;
   });
 }
-
-// Function to save form data
-function saveUser() {
-  let id = document.getElementById("idNumber").value;
-  let first = document.getElementById("firstName").value;
-  let middle = document.getElementById("middleName").value;
-  let last = document.getElementById("lastName").value;
-  let gender = document.getElementById("gender").value;
-  let birthday = document.getElementById("birthday").value;
-
-  // Create object
-  let user = {
-    id: id,
-    first: first,
-    middle: middle,
-    last: last,
-    gender: gender,
-    birthday: birthday
-  };
-
-  // Add to array
-  userList.push(user);
-
-  // Display on table
-  showTable();
-
-  // Reset the form
-  document.getElementById("signupForm").reset();
-
-  // Button color change
-  let btn = document.getElementById("saveBtn");
-  btn.style.backgroundColor = "lightgreen";
-  setTimeout(function() {
-    btn.style.backgroundColor = "lightblue";
-  }, 700);
-}
-
-// Event listener for the button
-document.getElementById("saveBtn").addEventListener("click", saveUser);
