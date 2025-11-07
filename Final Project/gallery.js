@@ -1,6 +1,3 @@
-gallery.js
-
-
 document.addEventListener('DOMContentLoaded', () => {
   // We'll target the main element that contains category sections
   const main = document.querySelector('main');
