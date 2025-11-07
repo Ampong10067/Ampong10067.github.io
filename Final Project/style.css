@@ -66,7 +66,7 @@ a {
   transform: translateY(-2px);
 }
 
-/* SIGN UP / LOGIN GREEN FILL BUTTON (restored) */
+/* SIGN UP / LOGIN GREEN FILL BUTTON */
 .primary-link {
   position: relative;
   display: inline-block;
@@ -78,6 +78,7 @@ a {
   font-weight: 600;
   overflow: hidden;
   transition: color 0.4s ease;
+  cursor: pointer;
   z-index: 1;
 }
 
@@ -88,7 +89,7 @@ a {
   left: 0;
   width: 0;
   height: 100%;
-  background: #C1E1C1; /* your requested fill color */
+  background: #C1E1C1;
   z-index: -1;
   transition: width 0.4s ease;
 }
@@ -101,7 +102,7 @@ a {
   width: 100%;
 }
 
-/* BURGER MENU (for mobile) */
+/* BURGER MENU */
 .burger {
   display: none;
   flex-direction: column;
@@ -204,5 +205,52 @@ a {
 
   #gallery-search {
     width: 90%;
+  }
+}
+
+body {
+  background-color: #f7f7f7; /* Less white space, stronger visibility */
+}
+
+/* Expand gallery content to full width */
+.gallery-page {
+  width: 100%;
+  max-width: none;
+  padding: 3rem 3%;
+}
+
+/* Search + category row widens */
+.gallery-controls {
+  width: 100%;
+  max-width: 1600px;
+}
+
+/* Bigger tiles + bolder presence */
+.row {
+  grid-auto-columns: min(280px, 25%);
+  gap: 2rem;
+}
+
+/* Medium-to-large previews */
+.tile img,
+.tile video {
+  max-height: 260px;
+}
+
+/* Larger section titles for stronger hierarchy */
+.section-header h2 {
+  font-size: 1.7rem;
+}
+
+/* Increased hover animation */
+.tile:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* Mobile improvements */
+@media (max-width: 768px) {
+  .row {
+    grid-auto-columns: min(240px, 60%);
   }
 }
