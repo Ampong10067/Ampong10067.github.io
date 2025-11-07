@@ -48,6 +48,16 @@
   -webkit-overflow-scrolling: touch;
 }
 
+/* 🔹 FLEX ADDITION — fallback when grid adapts */
+@media (min-width: 900px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1.5rem;
+  }
+}
+
 /* Each tile */
 .tile {
   background: #fff;
@@ -61,6 +71,12 @@
   width: 100%;
   min-height: 160px;
   transition: transform 0.25s, box-shadow 0.25s;
+}
+
+/* 🔹 FLEX ITEM BEHAVIOR ADDED */
+.tile {
+  flex: 1 1 calc(25% - 1.5rem);
+  max-width: 280px;
 }
 
 .tile:hover {
@@ -98,5 +114,18 @@
 @media (max-width: 768px) {
   .row {
     grid-auto-columns: min(200px, 70%);
+  }
+}
+
+/* 🔹 FLEX RESPONSIVE BEHAVIOR */
+@media (max-width: 900px) {
+  .tile {
+    flex: 1 1 calc(33.33% - 1.5rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .tile {
+    flex: 1 1 calc(48% - 1.5rem);
   }
 }
