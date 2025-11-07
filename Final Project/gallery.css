@@ -1,90 +1,166 @@
-/* PAGE WRAPPER */
+/* =========================
+   gallery.css — Netflix rows (dark)
+   ========================= */
+
+/* Page wrapper */
 .gallery-page {
-  max-width: 1920px;
   width: 100%;
+  max-width: 1920px;
   margin: 0 auto;
   padding: 2rem 48px;
-  display: flex;
-  flex-direction: column;
+  display:flex;
+  flex-direction:column;
   gap: 3rem;
+  color: #e6e6e6;
 }
 
-/* CATEGORY SECTION */
+/* Category section */
 .category-section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: .8rem;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
 }
 
-/* SECTION TITLE */
+/* Header */
 .section-header {
-  display: flex;
-  align-items: center;
-  gap: .7rem;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
 }
 .section-header h2 {
   font-size: clamp(1.4rem, 2vw, 2.2rem);
   font-weight: 700;
+  color: #ffffff;
 }
-.count {
-  color: #666;
+.section-header .count {
+  color: #bdbdbd;
   font-size: .95rem;
 }
 
-/* SCROLL ROW */
+/* Row: horizontal scrolling */
 .row {
-  display: grid;
+  display:grid;
   grid-auto-flow: column;
-  grid-auto-columns: min(360px, 23vw);
-  gap: 1.8rem;
+  /* big columns for ultra-wide screens: 360–520px range */
+  grid-auto-columns: minmax(420px, 26vw);
+  gap: 1.6rem;
   overflow-x: auto;
-  padding-bottom: 10px;
+  padding-bottom: 12px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  align-items: start;
+  scrollbar-width: thin;
 }
 
-/* THUMBS — 16:9 BIG */
+/* thin custom scrollbar appearance (dark theme) */
+.row::-webkit-scrollbar { height: 10px; }
+.row::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 999px; }
+.row::-webkit-scrollbar-track { background: transparent; }
+
+/* Tile card base */
 .tile {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
   scroll-snap-align: start;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  overflow: visible; /* allow expansion to overflow slightly */
   cursor: pointer;
-  transition: transform .25s ease, box-shadow .25s ease;
-  display: flex;
-  flex-direction: column;
+  transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s ease;
+  display:flex;
+  flex-direction:column;
+  position: relative;
+  min-height: 0;
+  will-change: transform;
 }
 
-.tile:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 22px rgba(0,0,0,.15);
-}
-
+/* Thumbnail (16:9) */
 .tile img,
 .tile video {
-  width: 100%;
+  width:100%;
+  display:block;
+  height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  display: block;
+  border-radius: 8px;
 }
 
-/* CAPTIONS */
+/* Caption area (title + meta) */
+.tile .caption {
+  padding: .6rem .9rem .9rem;
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  background: transparent;
+}
 .tile h3 {
   font-size: 1.05rem;
-  margin: .6rem .8rem .25rem;
-  font-weight: 600;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  transition: font-size .22s ease, transform .22s ease;
 }
 .tile .meta {
-  font-size: .88rem;
-  margin: 0 .8rem .8rem;
-  color: #666;
+  color: #cfcfcf;
+  font-size: .92rem;
+  margin: 0;
+  opacity: .95;
 }
 
-/* RESPONSIVE */
+/* H3-A: Card Expansion on hover (smooth sideways growth, reveal larger caption) */
+/* expansion uses transform + z-index so it visually expands without reflowing the row */
+.tile {
+  transform-origin: left center;
+}
+.tile:hover {
+  transform: scale(1.06);
+  z-index: 40;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+}
+
+/* Slight extra reveal effect for caption when hovered */
+.tile .caption { transition: transform .22s ease, background .22s ease; }
+.tile:hover .caption { transform: translateY(0); }
+
+/* Reveal more metadata on hover (makes the tile feel expanded) */
+.tile .meta { max-height: 2.4rem; transition: max-height .22s ease, opacity .22s ease; }
+.tile:hover .meta { max-height: 6rem; opacity: 1; }
+
+/* subtle glow using your accent (green) as outline on hover */
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 12px;
+  box-shadow: 0 0 0 0 rgba(37,65,23,0.0);
+  transition: box-shadow .28s ease;
+}
+.tile:hover::after {
+  box-shadow: 0 0 40px 8px rgba(37,65,23,0.06);
+}
+
+/* make title grow slightly on hover for emphasis */
+.tile:hover h3 { transform: translateY(-2px) scale(1.02); }
+
+/* Desktop + landscape tweaks */
+@media (min-width: 1600px) {
+  .row { grid-auto-columns: minmax(520px, 24vw); gap: 2rem; }
+  .tile img, .tile video { border-radius: 10px; }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .row { grid-auto-columns: minmax(360px, 46vw); gap: 1.2rem; }
+  .tile:hover { transform: scale(1.04); }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
-  .row {
-    grid-auto-columns: min(260px, 65vw);
-    gap: 1rem;
-  }
+  .gallery-page { padding: 1.2rem 20px; gap: 2rem; }
+  .row { grid-auto-columns: minmax(240px, 78vw); gap: 1rem; }
+  .tile:hover { transform: none; z-index: 1; box-shadow: 0 8px 18px rgba(0,0,0,0.5); }
+  .tile h3 { font-size: 1rem; }
+  .tile .meta { font-size: .85rem; }
+  /* Don’t allow expansion on touch devices to avoid layout jumping */
+  .tile { transition: box-shadow .22s ease; }
 }
