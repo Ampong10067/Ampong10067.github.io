@@ -104,3 +104,52 @@
     grid-auto-columns: min(200px, 70%);
   }
 }
+
+@media (min-width: 800px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.75rem;
+    overflow-x: visible;
+  }
+
+  .tile {
+    width: 280px;
+  }
+}
+
+.tile {
+  background: #fff;
+  border-radius: 12px;
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.tile:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+
+.tile video,
+.tile img {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.tile h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.tile .meta {
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: #555;
+}
+
+@media (max-width: 799px) {
+  .row {
+    gap: 1.25rem;
+  }
+}
