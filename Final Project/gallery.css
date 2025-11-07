@@ -4,18 +4,22 @@
   flex-direction: column; /* stack categories vertically */
   gap: 2.5rem; /* spacing between categories */
   padding: 2rem 0;
-  width: 90%;
-  max-width: 1200px;
+  
+  width: 100%;
+  max-width: 1600px; /* Wider like Gumroad */
   margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 /* Individual category section */
 .category-section {
+  /* ORIGINAL */
   width: 100%;
   display: flex;
   flex-direction: column; /* stack header + row vertically */
   border-bottom: 1px solid #eee;
-  padding: 1.5rem 0; /* breathing room inside section */
+  padding: 1.5rem 0;
 }
 
 /* Section header */
@@ -38,24 +42,18 @@
 
 /* Horizontal scroll row for tiles */
 .row {
+  /* ORIGINAL */
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: min(280px, 80%);
-  gap: 1.5rem; /* horizontal spacing between tiles */
+  gap: 1.5rem;
   overflow-x: auto;
   padding-bottom: 10px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-}
 
-/* 🔹 FLEX ADDITION — fallback when grid adapts */
-@media (min-width: 900px) {
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 1.5rem;
-  }
+  grid-auto-columns: 300px; /* Larger + flexible */
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
 }
 
 /* Each tile */
@@ -73,12 +71,6 @@
   transition: transform 0.25s, box-shadow 0.25s;
 }
 
-/* 🔹 FLEX ITEM BEHAVIOR ADDED */
-.tile {
-  flex: 1 1 calc(25% - 1.5rem);
-  max-width: 280px;
-}
-
 .tile:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
@@ -89,9 +81,10 @@
   width: 100%;
   display: block;
   object-fit: cover;
-  max-height: 220px;
+  max-height: 260px;
 }
 
+/* Texts */
 .tile h3 {
   font-size: 1rem;
   margin: 0.6rem 0 0.2rem 0.9rem;
@@ -103,29 +96,16 @@
   margin: 0 0.9rem 0.9rem;
 }
 
-/* Make rows show more than one column on desktop */
+/* Desktop: show more tiles */
 @media (min-width: 900px) {
   .row {
-    grid-auto-columns: min(240px, 33%);
+    grid-auto-columns: 260px; 
   }
 }
 
-/* Responsive fix for mobile horizontal scroll */
+/* Mobile horizontal scroll */
 @media (max-width: 768px) {
   .row {
-    grid-auto-columns: min(200px, 70%);
-  }
-}
-
-/* 🔹 FLEX RESPONSIVE BEHAVIOR */
-@media (max-width: 900px) {
-  .tile {
-    flex: 1 1 calc(33.33% - 1.5rem);
-  }
-}
-
-@media (max-width: 600px) {
-  .tile {
-    flex: 1 1 calc(48% - 1.5rem);
+    grid-auto-columns: 200px;
   }
 }
