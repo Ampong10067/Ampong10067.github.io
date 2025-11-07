@@ -66,7 +66,7 @@ a {
   transform: translateY(-2px);
 }
 
-/* SIGN UP / LOGIN GREEN FILL BUTTON */
+/* SIGN UP / LOGIN BUTTON */
 .primary-link {
   position: relative;
   display: inline-block;
@@ -78,7 +78,6 @@ a {
   font-weight: 600;
   overflow: hidden;
   transition: color 0.4s ease;
-  cursor: pointer;
   z-index: 1;
 }
 
@@ -169,7 +168,7 @@ a {
   background: #f3f3f3;
 }
 
-/* Footer */
+/* FOOTER */
 .site-footer {
   background: #f8f8f8;
   padding: 1rem 0;
@@ -179,6 +178,37 @@ a {
 
 #year {
   font-weight: 600;
+}
+
+/* GALLERY FULL-WIDTH FIX */
+.wrap.gallery-page {
+  width: 100% !important;
+  max-width: none !important;
+  padding-left: 3% !important;
+  padding-right: 3% !important;
+  margin: 0 auto !important;
+  box-sizing: border-box;
+}
+
+.wrap.gallery-page > .gallery-controls,
+.wrap.gallery-page > .category-section {
+  width: 100% !important;
+  max-width: 1600px !important;
+  margin: 0 auto !important;
+}
+
+.wrap.gallery-page .row {
+  grid-auto-columns: min(300px, 25%) !important;
+  gap: 2rem !important;
+}
+
+.wrap.gallery-page .tile img,
+.wrap.gallery-page .tile video {
+  max-height: 320px !important;
+}
+
+.wrap.gallery-page .section-header h2 {
+  font-size: 1.9rem !important;
 }
 
 /* RESPONSIVE */
@@ -206,51 +236,13 @@ a {
   #gallery-search {
     width: 90%;
   }
-}
 
-body {
-  background-color: #f7f7f7; /* Less white space, stronger visibility */
-}
+  .wrap.gallery-page .row {
+    grid-auto-columns: min(240px, 70%) !important;
+  }
 
-/* Expand gallery content to full width */
-.gallery-page {
-  width: 100%;
-  max-width: none;
-  padding: 3rem 3%;
-}
-
-/* Search + category row widens */
-.gallery-controls {
-  width: 100%;
-  max-width: 1600px;
-}
-
-/* Bigger tiles + bolder presence */
-.row {
-  grid-auto-columns: min(280px, 25%);
-  gap: 2rem;
-}
-
-/* Medium-to-large previews */
-.tile img,
-.tile video {
-  max-height: 260px;
-}
-
-/* Larger section titles for stronger hierarchy */
-.section-header h2 {
-  font-size: 1.7rem;
-}
-
-/* Increased hover animation */
-.tile:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-}
-
-/* Mobile improvements */
-@media (max-width: 768px) {
-  .row {
-    grid-auto-columns: min(240px, 60%);
+  .wrap.gallery-page .tile img,
+  .wrap.gallery-page .tile video {
+    max-height: 220px !important;
   }
 }
