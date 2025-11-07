@@ -1,111 +1,105 @@
 /* Wrapper for all categories */
 .gallery-page {
   display: flex;
-  flex-direction: column; /* stack categories vertically */
-  gap: 2.5rem; /* spacing between categories */
+  flex-direction: column;
+  gap: 3rem;
   padding: 2rem 0;
-  
-  width: 100%;
-  max-width: 1600px; /* Wider like Gumroad */
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 
-/* Individual category section */
+/* Category section */
 .category-section {
-  /* ORIGINAL */
   width: 100%;
   display: flex;
-  flex-direction: column; /* stack header + row vertically */
+  flex-direction: column;
   border-bottom: 1px solid #eee;
-  padding: 1.5rem 0;
+  padding: 2rem 0;
 }
 
 /* Section header */
 .section-header {
   display: flex;
   align-items: baseline;
-  gap: 12px;
-  margin-bottom: 1rem;
+  gap: 14px;
+  margin-bottom: 1.2rem;
 }
 
 .section-header h2 {
-  font-size: 1.25rem;
-  letter-spacing: 0.2px;
+  font-size: 1.85rem;
+  font-weight: 700;
 }
 
 .section-header .count {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #777;
 }
 
-/* Horizontal scroll row for tiles */
+/* Tile row */
 .row {
-  /* ORIGINAL */
   display: grid;
   grid-auto-flow: column;
-  gap: 1.5rem;
+  grid-auto-columns: min(300px, 28%);
+  gap: 1.7rem;
   overflow-x: auto;
-  padding-bottom: 10px;
+  padding-bottom: 12px;
   scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-
-  grid-auto-columns: 300px; /* Larger + flexible */
-  padding-top: 0.5rem;
-  padding-bottom: 1rem;
 }
 
-/* Each tile */
+/* Tile card */
 .tile {
   background: #fff;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.10);
   cursor: pointer;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  min-height: 160px;
+  min-height: 260px;
   transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .tile:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.14);
 }
 
 .tile img,
 .tile video {
   width: 100%;
-  display: block;
   object-fit: cover;
-  max-height: 260px;
+  max-height: 300px;
 }
 
-/* Texts */
+/* Text */
 .tile h3 {
-  font-size: 1rem;
-  margin: 0.6rem 0 0.2rem 0.9rem;
+  font-size: 1.2rem;
+  margin: 0.9rem 0 0.3rem 1rem;
 }
 
 .tile .meta {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #666;
-  margin: 0 0.9rem 0.9rem;
+  margin: 0 1rem 1rem;
 }
 
-/* Desktop: show more tiles */
+/* Desktop */
 @media (min-width: 900px) {
   .row {
-    grid-auto-columns: 260px; 
+    grid-auto-columns: min(300px, 28%);
   }
 }
 
-/* Mobile horizontal scroll */
+/* Mobile */
 @media (max-width: 768px) {
   .row {
-    grid-auto-columns: 200px;
+    grid-auto-columns: min(240px, 75%);
+  }
+
+  .tile img,
+  .tile video {
+    max-height: 260px;
   }
 }
