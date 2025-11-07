@@ -1,12 +1,3 @@
-/* ---------- gallery.js (drop into project) ---------- */
-/* This script adds inline expand behavior:
-   - Click any .tile to open an inline .expanded-panel inserted into the grid (spans full width)
-   - Clicking the same tile again closes the panel
-   - Only one panel open at a time
-   - Esc key closes panel
-   - Video playback handled for video tiles
-*/
-
 document.addEventListener('DOMContentLoaded', () => {
   // We'll target the main element that contains category sections
   const main = document.querySelector('main');
