@@ -102,7 +102,7 @@ main.wrap {
 }
 
 .primary-link:hover {
-    color: #111;
+    color: #bfdd7b;
 }
 
 .primary-link:hover::before {
