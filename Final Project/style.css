@@ -241,6 +241,117 @@ a {
   to {opacity: 1}
 }
 
+/* ============================= */
+/* CAROUSEL SECTION */
+/* ============================= */
+.carousel-section {
+  text-align: center;
+  margin: 0; /* spacing managed by main.wrap gap */
+}
+
+/* wrapper centers content and provides spacing */
+.carousel-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.carousel-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  color: #254117;
+  font-weight: 700;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s ease-in-out;
+  align-items: center;
+  /* ensure no accidental wrapping */
+  white-space: nowrap;
+}
+
+/* Use flex-basis so sliding works predictably.
+   Default shows 4 items (each ~25%). Adjust for responsiveness below. */
+.carousel-track img {
+  flex: 0 0 calc(25% - 1rem);
+  margin: 0 0.5rem;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.carousel-track img:hover {
+  transform: scale(1.03);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #254117;
+  color: #fff;
+  border: none;
+  font-size: 1.6rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  border-radius: 50%;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+}
+
+.carousel-btn.prev { left: 8px; }
+.carousel-btn.next { right: 8px; }
+
+/* HOME INTRO SECTION */
+.home-intro {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+.home-intro h1 {
+  font-size: 2.25rem;
+  color: #254117;
+  margin-bottom: 0.8rem;
+}
+
+.home-intro p {
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+  color: #333;
+}
+
+/* ============================= */
+/* RESPONSIVE DESIGN */
+/* ============================= */
+@media (max-width: 1024px) {
+  .carousel-track img {
+    flex: 0 0 calc(33.333% - 1rem); /* 3 per view on medium screens */
+    height: 300px;
+  }
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .main-nav ul {
@@ -263,6 +374,19 @@ a {
         display: flex;
     }
 
+     .carousel-track img {
+    flex: 0 0 calc(90% - 1rem); /* 1 per view on small screens */
+    height: 260px;
+  }
+
+  .home-intro h1 {
+    font-size: 1.8rem;
+  }
+
+  .home-intro p {
+    font-size: 1rem;
+  }
+    
     #gallery-search {
         width: 90%;
     }
