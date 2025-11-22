@@ -266,13 +266,4 @@ a {
     #gallery-search {
         width: 90%;
     }
-
-    .wrap.gallery-page .row {
-        grid-auto-columns: min(240px, 70%) !important;
-    }
-
-    .wrap.gallery-page .tile img,
-    .wrap.gallery-page .tile video {
-        max-height: 220px !important;
-    }
 }
