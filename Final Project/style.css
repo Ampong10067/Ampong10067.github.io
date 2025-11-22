@@ -36,6 +36,14 @@ a {
     justify-content: space-between;
     align-items: center;
 }
+/* --- IMPORTANT: override for main so sections stack vertically --- */
+main.wrap {
+  /* main should be column so the carousels + intro stack */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: stretch;
+}
 
 .brand img {
     height: 50px;
