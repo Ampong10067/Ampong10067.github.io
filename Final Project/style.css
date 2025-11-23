@@ -237,8 +237,8 @@ main.wrap {
   text-align: center; /* keeps paragraphs centered if you want */
 }
 
-.about-section p {
-  text-align: left;
+.about-section h1 {
+  text-align: center;
 }
 
 .text h2 {
