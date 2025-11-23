@@ -245,6 +245,19 @@ main.wrap {
   width: fit-content;   /* shrink width to content for perfect centering */
 }
 
+.creators-intro {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;       /* normal text size */
+  text-align: center;
+  color: #333;
+}
+
+.creators-title {
+  font-weight: 700;         /* bold */
+  font-size: 1.4rem;        /* slightly bigger */
+}
+
 .creators-container {
   display: flex;
   justify-content: center;   
