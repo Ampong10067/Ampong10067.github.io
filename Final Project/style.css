@@ -233,11 +233,14 @@ main.wrap {
   align-items: center;  /* This centers h2 and p exactly */
 }
 
+.about-section p {
+  text-align: center; /* keeps paragraphs centered if you want */
+}
+
 .about-section h1 {
-  display: flex;           /* stack children vertically */
-  flex-direction: column;
-  align-items: center;     /* center all children horizontally */
-  text-align: center;      /* ensure text itself is centered */
+  text-align: center; /* guarantee h1 is centered */
+  width: 100%;
+  margin: 0 auto;
 }
 
 .text h2 {
