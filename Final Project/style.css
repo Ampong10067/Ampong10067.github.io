@@ -367,7 +367,7 @@ main.wrap {
 .carousel-section h2 {
   font-size: 2rem;
   margin-bottom: 0.3rem;
-  color: #254117;
+  color: #7bc46a;
   font-weight: 700;
 }
 
@@ -407,7 +407,7 @@ main.wrap {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #254117;
+  background: #7bc46a;
   color: #fff;
   border: none;
   font-size: 1.6rem;
@@ -438,7 +438,7 @@ main.wrap {
 
 .home-intro h1 {
   font-size: 2.25rem;
-  color: #254117;
+  color: #7bc46a;
   margin-bottom: 0.8rem;
 }
 
