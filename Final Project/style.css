@@ -253,14 +253,16 @@ main.wrap {
 }
 
 .creators-title {
-  font-weight: 700;      /* bold */
-  font-size: 1.6rem;     /* bigger than normal text */
+  font-weight: 700;   /* same as h1 */
+  font-size: 2rem;    /* same size as "About Klasik Sining" */
   margin-bottom: 0.5rem;
 }
 
 .creators-subtitle {
-  font-weight: 500;      /* normal-medium weight */
-  font-size: 1.1rem;     /* normal text size */
+  font-weight: 400;   /* normal weight */
+  font-size: 1.2rem;  /* same size as your about-section paragraphs */
+  margin-bottom: 1rem;
+  color: #333;        /* same color as paragraphs */
 }
 
 .creators-container {
