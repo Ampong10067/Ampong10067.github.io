@@ -91,12 +91,21 @@
   margin: 0 0.9rem 0.9rem;
 }
 
-/* Make lightbox popup images & videos smaller */
-.lb-image,
-.lb-outerContainer {
-    width: 60% !important;
-    max-width: 700px !important;
-    height: auto !important;
+/* =========================
+   POPUP (EXPANDED PANEL) SIZE FIX
+   ========================= */
+.expanded-panel {
+  max-width: 700px;     /* <-- control popup width */
+  margin: 2rem auto;    /* center it */
+  padding: 1rem;
+}
+
+.expanded-media img,
+.expanded-media video {
+  width: 100%;
+  max-height: 400px;    /* <-- control media height */
+  object-fit: contain;  /* don’t crop */
+  border-radius: 10px;
 }
 
 /* Make rows show more than one column on desktop */
