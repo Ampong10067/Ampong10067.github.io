@@ -219,7 +219,7 @@ main.wrap {
   filter: brightness(70%);
 }
 
-.text h1 {
+.text {
   color: #fff;
   font-size: 1.2rem;
   text-align: center;
@@ -227,7 +227,10 @@ main.wrap {
   bottom: 15%;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
+  width: 100%;         /* Make full width for true centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* This centers h2 and p exactly */
 }
 
 .text h2 {
