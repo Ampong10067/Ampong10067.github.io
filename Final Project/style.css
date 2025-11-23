@@ -248,14 +248,19 @@ main.wrap {
 .creators-intro {
   margin-top: 2rem;
   margin-bottom: 1rem;
-  font-size: 1.1rem;       /* normal text size */
   text-align: center;
   color: #333;
 }
 
 .creators-title {
-  font-weight: 700;         /* bold */
-  font-size: 1.4rem;        /* slightly bigger */
+  font-weight: 700;      /* bold */
+  font-size: 1.6rem;     /* bigger than normal text */
+  margin-bottom: 0.5rem;
+}
+
+.creators-subtitle {
+  font-weight: 500;      /* normal-medium weight */
+  font-size: 1.1rem;     /* normal text size */
 }
 
 .creators-container {
