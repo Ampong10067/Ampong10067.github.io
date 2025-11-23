@@ -94,9 +94,8 @@
 /* Make popup images/videos smaller */
 .popup-content img,
 .popup-content video {
-  width: 60%;
-  max-width: 600px;
-  border-radius: 10px;
+  width: 40%;
+  max-width: 450px;
 }
 
 /* Make rows show more than one column on desktop */
