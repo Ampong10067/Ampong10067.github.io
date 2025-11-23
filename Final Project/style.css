@@ -237,6 +237,10 @@ main.wrap {
   text-align: center; /* keeps paragraphs centered if you want */
 }
 
+.about-section p {
+  text-align: left;
+}
+
 .text h2 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
