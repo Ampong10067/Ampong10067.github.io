@@ -233,7 +233,7 @@ main.wrap {
   align-items: center;  /* This centers h2 and p exactly */
 }
 
-.about-section {
+.about-section h1 {
   display: flex;           /* stack children vertically */
   flex-direction: column;
   align-items: center;     /* center all children horizontally */
