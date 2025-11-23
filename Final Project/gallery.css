@@ -91,20 +91,25 @@
   margin: 0 0.9rem 0.9rem;
 }
 
-/* =========================
-   POPUP (EXPANDED PANEL) SIZE FIX
-   ========================= */
+/* -----------------------------
+   MAKE POPUP IMAGE/VIDEO SMALLER
+   ----------------------------- */
 .expanded-panel {
-  max-width: 700px;     /* <-- control popup width */
-  margin: 2rem auto;    /* center it */
-  padding: 1rem;
+  max-width: 800px;
+  margin: 1rem auto;
+}
+
+.expanded-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .expanded-media img,
 .expanded-media video {
-  width: 100%;
-  max-height: 400px;    /* <-- control media height */
-  object-fit: contain;  /* don’t crop */
+  width: 70%;
+  max-width: 600px;
+  height: auto;
   border-radius: 10px;
 }
 
