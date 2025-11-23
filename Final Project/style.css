@@ -245,6 +245,57 @@ main.wrap {
   width: fit-content;   /* shrink width to content for perfect centering */
 }
 
+.creators-container {
+  display: flex;
+  justify-content: center;   
+  gap: 2rem;                 
+  margin-top: 2rem;
+  flex-wrap: wrap;           
+}
+
+.creator-card {
+  background-color: #fff;    
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  width: 250px;
+  transition: all 0.3s ease; 
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.creator-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  transition: transform 0.3s ease; 
+}
+
+.creator-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.creator-card p {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Hover effect for the card background and image only */
+.creator-card:hover {
+  background-color: #7bc46a;
+  transform: translateY(-10px); 
+}
+
+.creator-card:hover img {
+  transform: scale(1.05); 
+}
+
+/* Optional: change text color only when hovering over the text */
+.creator-card h3:hover,
+.creator-card p:hover {
+  color: #fff;
+}
+
 .text h2 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
