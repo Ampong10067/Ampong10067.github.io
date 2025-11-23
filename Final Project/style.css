@@ -230,14 +230,11 @@ main.wrap {
   width: 80%;
 }
 
-.about-section {
-  text-align: center;
-}
-
 .text h2 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
   font-weight: 700;
+  text-align: center;
 }
 
 .dot {
