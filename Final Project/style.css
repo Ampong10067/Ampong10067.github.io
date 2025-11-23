@@ -219,7 +219,7 @@ main.wrap {
   filter: brightness(70%);
 }
 
-.text {
+.text h1 {
   color: #fff;
   font-size: 1.2rem;
   text-align: center;
@@ -227,20 +227,11 @@ main.wrap {
   bottom: 15%;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;         /* Make full width for true centering */
-  display: flex;
-  flex-direction: column;
-  align-items: center;  /* This centers h2 and p exactly */
+  width: 80%;
 }
 
 .about-section p {
   text-align: center; /* keeps paragraphs centered if you want */
-}
-
-.about-section h1 {
-  text-align: center; /* guarantee h1 is centered */
-  width: 100%;
-  margin: 0 auto;
 }
 
 .text h2 {
