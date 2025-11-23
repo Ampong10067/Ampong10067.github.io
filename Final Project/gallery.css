@@ -83,12 +83,14 @@
 .tile h3 {
   font-size: 1rem;
   margin: 0.6rem 0 0.2rem 0.9rem;
+  align-items: center;
 }
 
 .tile .meta {
   font-size: 0.85rem;
   color: #666;
   margin: 0 0.9rem 0.9rem;
+  align-items: center;
 }
 
 /* -----------------------------
