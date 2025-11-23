@@ -238,7 +238,11 @@ main.wrap {
 }
 
 .about-section h1 {
-  text-align: center;
+  display: block;       /* ensures it's a block element */
+  margin-left: auto;    /* center horizontally */
+  margin-right: auto;
+  text-align: center;   /* centers the text inside the block */
+  width: fit-content;   /* shrink width to content for perfect centering */
 }
 
 .text h2 {
