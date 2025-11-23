@@ -219,7 +219,7 @@ main.wrap {
   filter: brightness(70%);
 }
 
-.text {
+.text h1 {
   color: #fff;
   font-size: 1.2rem;
   text-align: center;
