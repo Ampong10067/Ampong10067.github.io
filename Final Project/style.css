@@ -547,3 +547,47 @@ main.wrap {
         width: 90%;
     }
 }
+
+/* CONTACT US SECTION */
+.contact-section {
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: 50px;
+  background: #f7f7f7;
+  border-radius: 15px;
+}
+
+.contact-section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.contact-desc {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #000;
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+}
+
+.contact-links a:hover {
+  background: #000;
+  color: #fff;
+}
